@@ -15,16 +15,16 @@ function App() {
     return (
       <Router>
       <div>
+      <Suspense fallback={<Spinner/>}>
           <Routes>
-            <Suspense fallback={<Spinner/>}>
             <Route path="/" element={<><Modal/><Home/></>}/>
             <Route path="/venue/:vid" element={<SingleFullVenue/>}/>
             <Route path="/city/:cityName" element={<CityVenues/>}/>
             <Route path="/payment-success/:stripeToken" element={<PaymentSuccess/>}/>
             <Route path="/account/*" element={<Account/>}/>
             <Route path='/search/:searchId' element={<Search/>}/>
-            </Suspense>
           </Routes>
+        </Suspense>
           </div>
       </Router>
     );
